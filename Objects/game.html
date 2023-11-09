@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocumGemnt</title>
+</head>
+<body>
+    <p id="myprofile"></p>
+    <script>
+        function Factory(name, lifeforce, skill, lives)  {
+        mylifeforce = function(){
+                return `Lifeforce: ${lifeforce}`
+            };
+        mylives = function(){
+            return `Lives remaining: ${lives}`
+        }
+        myskill = function(){
+            return `Skill: ${skill}`
+        }
+        myname = function(){
+            return `Name: ${name}`
+        }
+        myprofile = function(){
+            return `Name: ${name} Skill: ${skill} Lifeforce: ${lifeforce} Lives: ${lives}`
+        }
+        livetaker = function(){
+            return lives = lives-1
+        }
+        return {
+            name, lifeforce, skill, lives, 
+        };
+    }
+        guy1 = Factory("Gigglesnort","100","Hiding",1);
+        guy2 = Factory("Periwinkle Puffin","100","Flying",13);
+        guy3 = Factory("Twinklesprout","100","grows when planted in the ground",13);
+        document.getElementById("myprofile").innerHTML =
+           guy1.myprofile();
+    </script>
+</body>
+</html>

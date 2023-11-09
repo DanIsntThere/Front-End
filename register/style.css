@@ -1,0 +1,31 @@
+.qs{
+    margin: auto;
+    width: 60%;
+    padding: 10px;
+    text-align: center;
+    font-size: 35px;
+}
+.title{
+    text-align: center;
+    margin: auto;
+    width: 60%;
+    font-size: 25px;
+    text-decoration: underline;
+}
+body, input[type="text"], input[type="number"]{
+    font-family: 'Tilt Neon', sans-serif;
+    background-color: rgb(237, 237, 237);
+    color:rgb(9, 110, 43);
+}
+input[type='submit']{
+    color:rgb(9, 110, 43);
+    background-color: white;
+    font-size:30px;
+    width:150px;
+    border-radius: 10px;
+    border-color: #333;
+}
+input[type='submit']:hover {
+    background-color: rgb(9, 110, 43);
+    color: white;
+}

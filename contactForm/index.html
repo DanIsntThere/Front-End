@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact form</title>
+
+    <script>
+        function validateForm() {
+    
+            let phone = document.forms["myForm"]["phone"].value;
+            let email = document.forms["myForm"]["email"].value;
+            phone = phone.substring(1);
+            phone = parseInt(phone)
+            if (phone>200){
+        
+                if (email.includes('@')){
+                    alert('Registration complete')
+                } 
+                else{
+                    alert('Email incomplete')
+                    return false;
+                }
+            } 
+            else{
+                alert("Phone number must be number");
+                return false;
+            }
+        }</script>
+</head>
+<body>
+    <form id="myForm" onsubmit="return validateForm()">
+            <label for="first">First Name:</label><br>
+            <input type="text" id="first" name="first" style="font-size: 20px; padding:10px;" required><br><br>
+            <label for="last">Last Name:</label><br>
+            <input type="text" id="last" name="last" style="font-size: 20px; padding:10px;" required><br><br>
+            <label for="age">Age:</label><br>
+            <input type="number" id="age" name="age" style="font-size: 20px; padding:10px;" required><br><br>
+            <label for="email">Email Address:</label><br>
+            <input type="text" id="email" name="email" style="font-size:20px; padding:10px;" required><br><br>
+            <label for="phone">Phone Number:</label><br>
+            <input type="number" id="phone" name="phone" style="font-size: 20px; padding:10px;" required><br><br>
+            <input type="radio" id="emailcon" name="contact">
+            <label for="emailcon">Email</label><br>
+            <input type="radio" id="phonecon" name="contact" >
+            <label for="phonecon">Phone</label><br>
+            <input type="radio" id="mailcon" name="contact">
+            <label for="mailcon">Mail</label><br>
+            <input type="submit" value="Submit" style="font-size:20px; padding:10px;">
+    </form>
+    
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" rel="stylesheet">
+    <style>
+        body{
+            text-align: center;
+            background-color: rgb(237, 237, 237);
+            font-family: 'Rubik', sans-serif;
+            color:rgb(9, 110, 43);
+            font-size:2em;
+        }
+        .title{
+            font-size: 35px; 
+        }
+        body, input[type="email"], input[type="number"]{
+        font-family: 'Rubik', sans-serif;
+        background-color: rgb(237, 237, 237);
+        color:rgb(9, 110, 43);
+        }
+        input[type='submit'], input[type='password']{
+            color:rgb(9, 110, 43);
+            background-color: rgb(237, 237, 237);
+            font-size:30px;
+            width:150px;
+            border-radius: 10px;
+            border-color: rgb(9, 110, 43);
+        }
+        input[type='submit']:hover {
+            background-color: rgb(9, 110, 43);
+            color: rgb(237, 237, 237);
+        }
+    </style>
+</head>
+<body>
+    <div class="title">
+        <h1>Sign in</h1>
+    </div>
+    <div class="qs">
+        <form id ="myForm" onsubmit="return validateForm()">
+            <label for="email">Email Address:</label><br>
+            <input type="email" id="email" name="email" style="font-size:20px; padding:15px; width:35%;" required><br><br>
+            <label for="Pass">Password:</label><br>
+            <input type="password" id="pass" name="pass" style="font-size:20px; padding:15px; width:35%;" required><br><br>
+            <input type="submit" value="Submit" style="font-size:20px; padding:15px; width:15%;">
+        </form>
+    </div>
+    <script>
+        function validateForm(){
+            let email = "example@email.com"
+            let pass = "SecurePassword123"
+            let Useremail = document.forms["myForm"]["email"].value;
+            let Userpass = document.forms["myForm"]["pass"].value;
+            console.log(Useremail,Userpass)
+            if (email == Useremail && pass == Userpass){
+                alert("Sign in complete")
+            } 
+            else{
+                alert("Incorrect email or password");
+                return false;
+            }
+        }
+        
+    </script>
+</body>
+</html>

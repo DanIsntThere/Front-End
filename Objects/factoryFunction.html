@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+<head>
+<title>Objicts</title>
+</head>
+<body>
+<div class="header">
+  <h1>
+      Javascript Classes
+  </h1>
+</div>
+
+<p id="appear"></p>
+<p id="square"></p>
+<p id="experiment"></p>
+<p id="myname"></p>
+<p id="cat"></p>
+
+<script>
+    function catFactory(name, breed, furcolour)  {
+        myname = function(){
+                return `my name is ${name}`
+            };
+        return {
+            name, breed, furcolour, myname, 
+        };
+    }
+
+
+    let myCat = catFactory("poppet","persian","black"),
+    yourCat = catFactory("syd","siamese","white");
+    cat = catFactory("fandango","Birman","grey");
+
+        
+    document.getElementById("appear").innerHTML =
+            myCat.name + " is a " +
+            myCat.furcolour + " " +
+            myCat.breed + " cat";
+    
+    document.getElementById("square").innerHTML =
+            yourCat["name"] + " is a " +
+            yourCat["furcolour"] + " " +
+            yourCat["breed"] + " cat";
+    
+    
+    document.getElementById("myname").innerHTML =
+           myCat.myname();
+    
+    document.getElementById("cat").innerHTML =
+            cat.name + " is a " +
+            cat.furcolour + " " +
+            cat.breed + " cat";
+</script>
+</body>
+</html>
+
+

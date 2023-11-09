@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="numberInput">Enter a Number: </label>
+    <input type="number" id="numberInput" onkeyup="showAlert(event)">
+
+    <p id="counter"></p>
+
+    <script>
+        function showAlert(event) {
+            var numberValue = event.target.value;
+
+            if (!isNaN(numberValue)) {
+                alert("Use the arrow keys");
+                num.innerHTML = click;
+            } else {
+                alert("Use the arrow keys");
+                num.innerHTML = click;
+            }
+        }
+    </script>
+</body>
+</html>

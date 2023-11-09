@@ -1,0 +1,18 @@
+h2{
+    background-color: whitesmoke;
+    color:black;
+    border:5px;
+    border-color:whitesmoke;
+}
+body{
+    background: gray;
+}
+div{
+    text-align: left;
+    color:white;
+}
+img{
+    align-items: right;
+    color:white;
+    max-width:1200px;
+}
