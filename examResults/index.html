@@ -107,11 +107,30 @@
         q4 = parseInt(d);
         q5 = parseInt(e);
 
+        
+
         ans = [q1, q2, q3, q4, q5];
         ans.forEach(iteration);
 
         overall = q1 + q2 + q3 + q4 + q5;
         avg = overall / 5;
+        if (overall <= 0) {
+          grade = "F";
+        } else if (overall < 10) {
+          grade = "D";
+        } else if (overall < 15) {
+          grade = "C";
+        } else if (overall < 20) {
+          grade = "B";
+        } else if (overall < 25) {
+          grade = "A";
+        } else {
+          grade = "A*";
+        }
+
+
+        ans.push(overall, avg,grade);
+        
 
         var x = document.createElement("TABLE");
         x.setAttribute("id", "myTable");
@@ -164,8 +183,8 @@
         var y = document.createElement("TR");
         y.setAttribute("id", "tr2");
         document.getElementById("myTable").appendChild(y);
-
-        var z = document.createElement("TD");
+        ans.forEach(trmaker);
+        /*var z = document.createElement("TD");
         var t = document.createTextNode(q1);
         z.appendChild(t);
         document.getElementById("tr2").appendChild(z);
@@ -218,7 +237,7 @@
         var t = document.createTextNode(grade);
         z.appendChild(t);
         document.getElementById("tr2").appendChild(z);
-        count = count + 1;
+        count = count + 1;*/
       }
 
       function iteration(value) {
@@ -235,6 +254,12 @@
           alert("You must enter a number between 0 and 5!");
           throw new Error("You must enter a number between 0 and 5!");
         }
+      }
+      function trmaker(value){
+        var z = document.createElement("TD");
+        var t = document.createTextNode(value);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
       }
     </script>
   </body>
