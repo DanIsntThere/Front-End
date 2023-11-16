@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exam Results</title>
+    <style>
+      table,
+      td {
+        border: 1px solid rgb(255, 11, 239);
+        padding: 5px;
+        margin-bottom: 15px;
+        text-align: center;
+        font-size: 30px;
+      }
+      body {
+        background-color: #f7ff02;
+        color: rgb(94, 209, 251);
+      }
+      input {
+        background-color: #0dff00;
+        color: #ffbf2a;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Exam Results</h1>
+    <p>All the questions are out of 5</p>
+    <form id="myForm" onsubmit="return results();return false">
+      <label for="q1">Question 1:</label><br />
+      <input
+        type="number"
+        id="q1"
+        min="0"
+        max="5"
+        name="q1"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <label for="q2">Question 2:</label><br />
+      <input
+        type="number"
+        id="q2"
+        min="0"
+        max="5"
+        name="q2"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <label for="q3">Question 3:</label><br />
+      <input
+        type="number"
+        id="q3"
+        min="0"
+        max="5"
+        name="q3"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <label for="q4">Question 4:</label><br />
+      <input
+        type="number"
+        id="q4"
+        min="0"
+        max="5"
+        name="q4"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <label for="q5">Question 5:</label><br />
+      <input
+        type="number"
+        id="q5"
+        min="0"
+        max="5"
+        name="q5"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <input
+        type="button"
+        value="Submit"
+        onclick="results()"
+        style="font-size: 20px; padding: 10px"
+      />
+    </form>
+
+    <script>
+      count = 0;
+      function results() {
+        console.log("I forgot how to comment");
+        console.log(
+          "#The brief was not clear about what goes in the results table"
+        );
+        if (count > 0) {
+          document.getElementById("myTable").remove();
+        }
+
+        let a = document.forms["myForm"]["q1"].value;
+        let b = document.forms["myForm"]["q2"].value;
+        let c = document.forms["myForm"]["q3"].value;
+        let d = document.forms["myForm"]["q4"].value;
+        let e = document.forms["myForm"]["q5"].value;
+        q1 = parseInt(a);
+        q2 = parseInt(b);
+        q3 = parseInt(c);
+        q4 = parseInt(d);
+        q5 = parseInt(e);
+
+        ans = [q1, q2, q3, q4, q5];
+        ans.forEach(iteration);
+
+        overall = q1 + q2 + q3 + q4 + q5;
+        avg = overall / 5;
+
+        var x = document.createElement("TABLE");
+        x.setAttribute("id", "myTable");
+        document.body.appendChild(x);
+
+        var y = document.createElement("TR");
+        y.setAttribute("id", "myTr");
+        document.getElementById("myTable").appendChild(y);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Question 1");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Question 2");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Question 3");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Question 4");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Question 5");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Overall");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Average");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode("Grade");
+        z.appendChild(t);
+        document.getElementById("myTr").appendChild(z);
+
+        var y = document.createElement("TR");
+        y.setAttribute("id", "tr2");
+        document.getElementById("myTable").appendChild(y);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(q1);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(q2);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(q3);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(q4);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(q5);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(overall);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(avg);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+
+        if (overall <= 0) {
+          grade = "F";
+        } else if (overall < 10) {
+          grade = "D";
+        } else if (overall < 15) {
+          grade = "C";
+        } else if (overall < 20) {
+          grade = "B";
+        } else if (overall < 25) {
+          grade = "A";
+        } else {
+          grade = "A*";
+        }
+
+        var z = document.createElement("TD");
+        var t = document.createTextNode(grade);
+        z.appendChild(t);
+        document.getElementById("tr2").appendChild(z);
+        count = count + 1;
+      }
+
+      function iteration(value) {
+        if (isNaN(value)) {
+          alert("You must enter a number between 0 and 5!");
+          throw new Error("You must enter a number between 0 and 5!");
+        } else if (value > 5) {
+          alert("You must enter a number between 0 and 5!");
+          throw new Error("You must enter a number between 0 and 5!");
+        } else if (value < 0) {
+          alert("You must enter a number between 0 and 5!");
+          throw new Error("You must enter a number between 0 and 5!");
+        } else if (value === NaN) {
+          alert("You must enter a number between 0 and 5!");
+          throw new Error("You must enter a number between 0 and 5!");
+        }
+      }
+    </script>
+  </body>
+</html>

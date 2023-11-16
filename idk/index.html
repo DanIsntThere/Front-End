@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>bear ting</title>
+    <style>
+      body {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+      <label for="bear">Bear:</label><br />
+      <input
+        type="text"
+        id="bear"
+        name="bear"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <label for="lion">Lion:</label><br />
+      <input
+        type="text"
+        id="lion"
+        name="lion"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <input
+        type="submit"
+        value="Submit"
+        style="font-size: 20px; padding: 10px"
+        onclick="ilokn()"
+      />
+
+    <div id="images" style="display: none">
+      <img src="bear.png" alt="bear.on g" />
+      <img src="lion.png" alt="lionfed Trulli" />
+    </div>
+
+    <script>
+      function ilokn() {
+        let bear = document.getElementById('bear').value.toLowerCase();
+        let lion = document.getElementById('lion').value.toLowerCase();
+
+        if (bear == "bear" && lion == "lion") {
+          document.getElementById('images').style.display = 'block'
+        }
+      }
+    </script>
+  </body>
+</html>
