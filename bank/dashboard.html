@@ -7,12 +7,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Rubik&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
         body{
             background-color: whitesmoke;
         }
         h1{
-            color:red;
+            color:#b7290e;
             text-decoration: underline;
             margin-left:1em;
             font-family: 'Rubik', sans-serif;
@@ -37,10 +38,28 @@
             border-spacing: 15px;
             padding-left: 15em;
         }
+        .fa-solid fa-poo{
+            height:50;
+            width:auto;
+        }
+        .btn {
+        background-color: #b7290e;
+        border: none;
+        color: white;
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        }
+        .btn:hover {
+        background-color: #f92a01;
+        }
+        
     </style>
 </head>
 <body>
     <h1>Runshaw Bank</h1>
+    <button class="btn"><i class="fa fa-home" onclick="buttonpress()"></i> Home</button>
+    <button class="btn" onclick="logout()"><i class="fa-solid fa-right-from-bracket"></i> Log Out</button>
     <div class ="container1">
         <h2>Balance: £0.84</h2>
     </div>
@@ -49,5 +68,19 @@
         <p>OUT| That oen chicken thing &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp |£2.32 </p>
         <p>&nbsp  IN| Mastercard &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp|15.00 </p>
     </div>
+
+
+    <script>
+        function buttonpress(){
+            alert('I did not consent to you touching me')
+            alert('')
+        }
+        function logout(){
+            alert('Logged out')
+            window.location.replace('index.html');
+        }
+
+
+    </script>
 </body>
 </html>

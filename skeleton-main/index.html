@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Template</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/skeleton.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+      <div class="one-half column" style="margin-top: 25%">
+        <h4>Login</h4>
+        <p>This index.html page is a placeholder with the CSS, font and favicon. It's just waiting for you to add some content! If you need some help hit up the <a href="http://www.getskeleton.com">Skeleton documentation</a>.</p>
+        <form>
+        First Name: <input type="text" id="inputFirstN" placeholder="Enter your first name"><br>
+        Age: <input type="number" id="inputAge" placeholder="Enter your age">
+        </form>
+        <button onclick="loginCustomer()">Log in</button>
+        <button onclick="addCustomer()">Register</button>
+        <button onclick="listCustomers()" style="display:none;">List</button>
+        <div id="balance" style="display:none;">
+          <p id="welcome"></p>
+          <p id="balance_value"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+<script>
+  class customer { //declare customers class (blueprint)
+    constructor(first_name="",age="") { //declare properties of customer class
+      this.first_name = first_name;
+      this.age = age;
+      this.balance = 0;
+    }
+
+    increaseBalance(increase) { //function to add a value to the customers balance
+      this.balance += increase;
+    }
+
+    reduceBalance(reduction) { //function to deduct a value from the customers balance
+      this.balance += reduction;
+    }
+
+    printCustomer() { //function to print values of the customer object to console log
+      console.log("first name: ", this.first_name);
+      console.log("age: ", this.age);
+      console.log("balance: ", this.balance);
+    }
+  }
+
+  customers = []; //declare customers array
+
+  function addCustomer() { //function to register a new customer (no validation)
+    let newCust = new customer() //create a new customer object to set properties
+    newCust.first_name = document.getElementById("inputFirstN").value; //set first name of new customer object to value of text box
+    newCust.age = document.getElementById("inputAge").value; //set age of new customer object to value of number picker
+    newCust.printCustomer(); //call printcustomer() function of new customer object to write values to console log
+    customers.push(newCust); //add new customer object to customers array
+  }
+
+  function loginCustomer() { //function to log a customer into their account
+    let first_name = document.getElementById("inputFirstN").value;
+    let age = document.getElementById("inputAge").value;
+    for(i=0;i<customers.length;i++) {
+      if(customers[i].first_name.toLowerCase()==first_name.toLowerCase() & customers[i].age==age) {
+        let welcomeText = document.getElementById("welcome");
+        let balanceValueText = document.getElementById("balance_value");
+        welcomeText.innerHTML = "welcome " + customers[i].first_name + ",";
+        balanceValueText.innerHTML = "your balance is: £" + customers[i].balance;
+        let balanceDiv = document.getElementById("balance");
+        balanceDiv.style = "display: block;"
+        break;
+      }
+    }
+  }
+
+  function listCustomers() { //function to loop through all customers in the customers array and print their values
+    for(i=0;i<customers.length;i++) {
+      customers[i].printCustomer();
+    }
+  }
+</script>
+</body>
+</html>

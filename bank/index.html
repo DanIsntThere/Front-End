@@ -1,47 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans&family=Rubik&display=swap"
+      rel="stylesheet"
+    />
     <title>Runshaw bank</title>
     <style>
-        body{
-            background-color: whitesmoke;
-            text-align: center;
-
-        }
-        #titles{
-            border:1px,solid,black;
-            background-color: red;
-            text-decoration: dashed;
-        }
+      body {
+        background-color: whitesmoke;
+        text-align: center;
+        font-family: "Noto Sans", sans-serif;
+      }
+      #titles {
+        border: 1px, solid, white;
+        background-color: #b7290e;
+        text-decoration: dashed;
+        font-family: "Noto Sans", sans-serif;
+        color: white;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div id="titles">
-        <h1>Runshaw Bank Login page</h1>
+      <h1>Runshaw Bank Login Page</h1>
     </div>
 
+    <form id="myForm" onsubmit="return validateForm()">
+      <label for="studentid">StudentID:</label><br />
+      <input
+        type="text"
+        id="studentid"
+        name="studentid"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <label for="password">Password:</label><br />
+      <input
+        type="password"
+        id="password"
+        name="password"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <label for="dob">DOB:</label><br />
+      <input
+        type="date"
+        id="dob"
+        name="dob"
+        style="font-size: 20px; padding: 10px"
+        required
+      /><br /><br />
+      <input
+        type="button"
+        value="Submit"
+        onclick="validateForm()"
+        style="font-size: 20px; padding: 10px"
+      />
+      
     
-    <form id ="myForm" onsubmit="return validateForm()">
-        <label for="first">First Name:</label><br>
-        <input type="text" id="first" name="first" style="font-size: 20px; padding:10px;" required><br><br>
-        <label for="last">Last Name:</label><br>
-        <input type="text" id="last" name="last" style="font-size: 20px; padding:10px;" required><br><br>
-        <label for="address">Address:</label><br>
-        <input type="text" id="address" name="address" style="font-size:20px; padding:10px;" required><br><br>
-        <label for="balance">Balance:</label><br>
-        <input type="number" id="balance" name="balance" style="font-size: 20px; padding:10px;" required><br><br>
-        <input type="submit" value="Submit" style="font-size:20px; padding:10px;">
     </form>
 
     <script>
-        function validateForm(){
-            console.log('loser actually red the console')
+      customers=[]
+      function validateForm() {
+        var a = document.forms["myForm"]["studentid"].value;
+        var b = document.forms["myForm"]["password"].value;
+        var c = document.forms["myForm"]["dob"].value;
+
+        customers.push(a,b,c);
 
 
 
+        if (customers[0]=="SMI21193605" && customers[1]=="pass" && customers[2]=='2006-07-03'){
+          alert('Logged in')
+          window.location.replace('dashboard.html');
         }
+        else{
+          alert('Incorrect details')
+          document.getElementById("studentid").style.borderColor = "red"
+          document.getElementById("password").style.borderColor = "red"
+          document.getElementById("dob").style.borderColor = "red"
+        }
+
+        
+      }
     </script>
-</body>
+  </body>
 </html>
